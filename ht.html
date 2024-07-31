@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Specs Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>System Specs Checker</h1>
+        <p id="cpu-cores">Checking CPU cores...</p>
+        <p id="user-agent">Checking User Agent...</p>
+        <p id="platform">Checking Platform...</p>
+        <p id="device-memory">Checking Device Memory...</p>
+        <p id="online-status">Checking Online Status...</p>
+        <p id="language">Checking Language...</p>
+        <p id="screen-resolution">Checking Screen Resolution...</p>
+        <p id="color-depth">Checking Color Depth...</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cpuCores = navigator.hardwareConcurrency || 'Unknown';
+            document.getElementById('cpu-cores').textContent = `Number of CPU cores: ${cpuCores}`;
+
+            const userAgent = navigator.userAgent || 'Unknown';
+            document.getElementById('user-agent').textContent = `User Agent: ${userAgent}`;
+
+            const platform = navigator.platform || 'Unknown';
+            document.getElementById('platform').textContent = `Platform: ${platform}`;
+
+            const deviceMemory = navigator.deviceMemory || 'Unknown';
+            document.getElementById('device-memory').textContent = `Device Memory: ${deviceMemory} GB`;
+
+            const onlineStatus = navigator.onLine ? 'Online' : 'Offline';
+            document.getElementById('online-status').textContent = `Online Status: ${onlineStatus}`;
+
+            const language = navigator.language || 'Unknown';
+            document.getElementById('language').textContent = `Language: ${language}`;
+
+            const screenWidth = screen.width || 'Unknown';
+            const screenHeight = screen.height || 'Unknown';
+            document.getElementById('screen-resolution').textContent = `Screen Resolution: ${screenWidth}x${screenHeight}`;
+
+            const colorDepth = screen.colorDepth || 'Unknown';
+            document.getElementById('color-depth').textContent = `Color Depth: ${colorDepth} bits`;
+        });
+    </script>
+</body>
+</html>
